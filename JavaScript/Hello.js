@@ -22,11 +22,11 @@ const pi = 3.14
 // declaration vs assignment -
 var a; //declaration
 var b = 2;
-console.log(a)
+// console.log(a)
 a = 7; //assignment
 b = a;
 
-console.log(a)
+// console.log(a)
 
 // Initializing a variable at declaraion - 
 var a = 9;
@@ -45,16 +45,16 @@ var StUdLyCapVar;
 
 // adding two numbers - 
 var sum = 10 + 10;
-console.log(sum)
+// console.log(sum)
 
 var diff = 20 - 10;
-console.log(diff)
+// console.log(diff)
 
 var prod = 8 * 10;
-console.log(prod)
+// console.log(prod)
 
 var quo = 355/10;
-console.log(quo)
+// console.log(quo)
 
 // increment -
 var myVar = 11;
@@ -77,7 +77,7 @@ var prod = 2.0 * 2.5;
 var quo = 4.4/2.0;
 // reminder operator - 
 var rem = 11%3;
-console.log(rem)
+// console.log(rem)
 
 a = a + 12;
 // is same as, works in similar way for subtraction
@@ -137,15 +137,15 @@ CODE    OUTPUT
 var myStr1 = "I am a double quoted string ";
 var myStr2 = "inside double quotes";
 myStr1 += myStr2
-console.log(myStr1)
+// console.log(myStr1)
 
 // length of string - 
 var myStr1 = "I am a double quoted string ";
-console.log(myStr1.length)
+// console.log(myStr1.length)
 
 // bracket notation - 
-var myStr1 = "I am a double quoted string ";
-console.log(myStr1[0])
+// var myStr1 = "I am a double quoted string ";
+// console.log(myStr1[0])
 
 // strings are immutable
 var myStr1 = "Jello World";
@@ -153,12 +153,226 @@ var myStr1 = "Jello World";
 // console.log()
 
 // game - 
-function wordBlanks(myNoun, myAdj, myVerb, myAdverb) {
-    var result = "";
+// function wordBlanks(myNoun, myAdj, myVerb, myAdverb) {
+//     var result = "";
 
-    // result = 
+//     result += "The" + myAdj + " " + myNoun + " " + myVerb + " to the store " + myAdverb;
 
-    return result;
+//     return result;
+// }
+
+// console.log(wordBlanks("dog", "big", "ran", "quickly"));
+
+
+
+// arrays - 
+var ourArray = ["Jhon", 23];
+
+// nested array - 
+var ourArray = [["Jhon", 23], ["Missy", 21]];
+
+// access array using index - 
+var ourArray = [20, 23, 30];
+var data = ourArray[0];
+
+// can also modify array data using indexing (arrays are mutable)
+// same way indexing and modification work for 2D arrays
+
+// push() function - append data to the end of array
+// var ourArray = [20, 23, 30];
+// ourArray.push(50);
+// console.log(ourArray);
+
+
+// pop() function - remove data to the end of array
+// var ourArray = [20, 23, 30, 50];
+// var vb = ourArray.pop();
+// console.log(vb);
+
+// shift() function - remove data from the beginning of the array 
+// var ourArray = [20, 23, 30, 50];
+// var vb = ourArray.shift();
+// console.log(vb);
+
+// unshift() function - add data to the beginning of the array 
+// var ourArray = [20, 23, 30, 50];
+// ourArray.unshift(100);
+// console.log(ourArray);
+
+
+
+// functions - definition 
+// function ourReusableFunction() {
+//     console.log("Hello world!");
+// }
+
+// // calling function
+// ourReusableFunction();
+// ourReusableFunction();
+
+// parameters
+// function ourReusableFunction(a, b) {
+//     console.log(a - b);
+// }
+
+// // calling function
+// ourReusableFunction(20, 10);
+// ourReusableFunction(100, 50);
+
+
+// scopes - 
+// var myGlobal = 10; // outside the function
+// function func1() {
+//     // if we do not put var keyword it will be global by default
+//     oopsGlobal = 5;
+// }
+
+// function func2() {
+//     var output = "";
+//     if (typeof myGlobal != "undefined") {
+//         output += "myGlobal: " + myGlobal;
+//     }
+//     if (typeof oopsGlobal != "undefined") {
+//         output += " oopsGlobal: " + oopsGlobal;
+//     }
+//     console.log(output)
+// }
+
+// func1();
+// func2();
+
+function myLocalScope() {
+    var myVar0 = 5;
+    console.log(myVar0);
+}
+// myLocalScope();
+// console.log(myVar0); -  not defined
+
+// local variable gets the precedence over the global variable
+
+
+// function nextInLine(arr, item){
+//     arr.push(item);
+//     return arr.shift();
+// }
+
+// var testArr = [1,2,3,4,5];
+// console.log("Before : " + JSON.stringify(testArr))
+// console.log(nextInLine(testArr, 6))
+// console.log("after : " + JSON.stringify(testArr))
+
+
+// boolean
+// function boolean(){
+//     return true;
+// }
+
+// if - 
+function TorF(isItTrue){
+    if (isItTrue){
+        return "yes, it is true";
+    }
+    return "No, it's false";
+}
+// console.log(TorF(true));
+
+// comparison -> '==' - Number and strings are equal here!
+// assignment -> '='
+// not equal -> '!=' - Number and strings are equal here!
+
+// strict equality operator -> '===', Number and strings are not equal here!
+// 3===3; //true
+// 3==='3'; - false
+
+// strict inequality operator -> '!==', Number and strings are not equal here!
+// 3!==3; //false
+// 3!=='3'; - true
+
+// && - AND operator
+// || - OR operator
+
+
+// else if - 
+function TestElseIf(val){
+    if (val > 10){
+        return "grater than 10";
+    } else if(val < 5){
+        return "less than 5";
+    }else{
+        return "Between 5 and 10";
+    }
 }
 
-console.log(wordBlanks("dog", "big", "ran", "quickly"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
