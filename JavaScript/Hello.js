@@ -241,10 +241,10 @@ var data = ourArray[0];
 // func1();
 // func2();
 
-function myLocalScope() {
-    var myVar0 = 5;
-    console.log(myVar0);
-}
+// function myLocalScope() {
+//     var myVar0 = 5;
+//     console.log(myVar0);
+// }
 // myLocalScope();
 // console.log(myVar0); -  not defined
 
@@ -302,6 +302,199 @@ function TestElseIf(val){
         return "Between 5 and 10";
     }
 }
+
+// switch statements - 
+function caseInSwitch(val){
+    var answer = "";
+    switch(val){
+        case 1:
+            answer = "alpha";
+            break;
+        case 2:
+            answer = "beta";
+            break;
+        case 3:
+            answer = "gamma";
+            break;
+        case 4:
+            answer = "delta";
+            break;
+        
+        // default, if any of the cases does not match
+        default:
+            answer = "Out of scope";
+            break;
+    }
+    return answer;
+}
+
+// console.log(caseInSwitch(2));
+
+// grouping cases - 
+function sequentialSizes(val){
+    var answer = "";
+    switch(val){
+        case 1:
+        case 2:
+        case 3:
+            answer = "Low";
+            break;
+        case 4:
+        case 5:
+        case 6:
+            answer = "Mid";
+            break;
+        case 7:
+        case 8:
+        case 9:
+            answer = "High";
+            break;
+    }
+    return answer;
+}
+// console.log(sequentialSizes(5));
+
+
+// Javascript Objects - 
+var ourDog = {
+    "name" : "Camper",
+    "legs" : 4,
+    "tails" : 1,
+    "friends" : ["everything"]
+};
+
+var myDog = {
+    "name" : "Quincy",
+    "legs" : 3,
+    "tails" : 2,
+    "friends" : []
+};
+
+// access object values - 
+var nameValue = ourDog.name;
+//  or(required when property has spaces)
+var nameValue = ourDog["name"];
+
+// updating object properties
+ourDog.name = "Happy Camper";
+ourDog["name"] = "Happy Camper";
+ourDog.bark = "bow-bow";
+
+// console.log(ourDog)
+// delete a property
+delete ourDog.bark
+
+// check if object has a property
+var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh"
+}
+function checkObj(checkProp){
+    if (myObj.hasOwnProperty(checkProp)){
+        return myObj[checkProp];
+    } else {
+        return "Not found";
+    }
+}
+
+// console.log(checkObj("hello"));
+
+// nested objetcs - 
+var myStorage = {
+    "car":{
+        "inside":{
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside":{
+            "trunk":"jack"
+        }
+    }
+};
+
+var gloveBox = myStorage.car.inside["glove box"]
+// console.log(gloveBox)
+
+
+// Loops - 
+var  myArr = [];
+var i = 0;
+while(i<5) {
+    myArr.push(i);
+    i ++;
+}
+// console.log(myArr);
+
+// for loop-  
+var  myArr = [];
+for (var i = 1; i < 6; i++) {
+    myArr.push(i);
+}
+// console.log(myArr);
+
+// iterate through array - 
+var  myArr = [1, 2, 3, 4, 5, 6, 7, 8];
+var ourTotal = 0;
+for (var i = 1; i < myArr.length; i++){
+    ourTotal += myArr[i]
+} 
+// console.log(ourTotal);
+
+//  do while loop - 
+var  myArr = [];
+var i = 10;
+do {
+    myArr.push(i);
+    i ++;
+} while(i<5)
+// console.log(i, myArr)
+
+// generate random Fractions - 
+function randomFraction() {
+    return Math.random();
+}
+// console.log(randomFraction());
+
+// random whole number
+var rnadomNumber = Math.floor(Math.random() * 20);
+function randomWhole() {
+    return Math.floor(Math.random() * 10);
+}
+// console.log(randomWhole());
+
+// random in range - 
+function randomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// console.log(randomInRange(10, 20));
+
+
+// parseInt - string to integer
+var convertedInt = parseInt("36");
+// console.log(convertedInt);
+
+// with redex
+var convertedInt = parseInt("1011001", 2);
+// console.log(convertedInt);
+
+// ternary operator - 
+var a = 10;
+var b = 20;
+var checkEqual = a===b ? true : false;
+// console.log(checkEqual)
+
+// nested ternary operator
+function checkSign(num) { 
+    return num > 0 ? "Positive" : num < 0 ? "Negative" : "Zero";
+}
+
+// console.log(checkSign(-2));
+
+// var, let and const to define a varaible - 
+
+
+
 
 
 
