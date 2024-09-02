@@ -492,11 +492,240 @@ function checkSign(num) {
 // console.log(checkSign(-2));
 
 // var, let and const to define a varaible - 
+// with let, you can not declare the variable twice with let
+var catName = "Quincy";
+var quote;
+
+var catName = "Beau"; // can do this
+
+
+// let catName = "Quincy";
+// let quote;
+
+// let catName = "Beau"; // this will result in an error
+
+function catTalk() {
+    "use strict"; // enables strict mode to catch common coding mistakes
+
+    catName = "Oliver";
+    quote = catName + " says Meaw!";
+
+}
+// catTalk()
+
+
+// let is only in block where it is defined, var is inside and outside of block
+// function checkScope() {
+//     "use_strict";
+//     var i = "function scope";
+//     if (true) {
+//         var i = "block scope";
+//         console.log("Block scope i is: ", i);
+//     }
+//     console.log("Function scope i is: ", i);
+//     return i;
+// }
+// checkScope();
+
+// function checkScope() {
+//     "use_strict";
+//     let i = "function scope";
+//     if (true) {
+//         let i = "block scope";
+//         console.log("Block scope i is: ", i);
+//     }
+//     console.log("Function scope i is: ", i);
+//     return i;
+// }
+// checkScope();
+
+// function checkScope() {
+//     "use_strict";
+//     // let i = "function scope";
+//     if (true) {
+//         var i = "block scope";
+//         console.log("Block scope i is: ", i);
+//     }
+//     console.log("Function scope i is: ", i);
+//     return i;
+// }
+// checkScope();
+
+// function checkScope() {
+//     "use_strict";
+//     // let i = "function scope";
+//     if (true) {
+//         let i = "block scope";
+//         console.log("Block scope i is: ", i);
+//     }
+//     console.log("Function scope i is: ", i);
+//     return i;
+// }
+// checkScope();
 
 
 
+// const - read only, can not be reassigned.
+// const city = "New York";
+// city = "New Delhi"; // gets error - Uncaught TypeError: Assignment to constant variable.
 
 
+// but, the values of an array and object defined as const can be reassigned by bracket notation.
+const arr = [2,5,7];
+// arr = [5,7,2]; //Uncaught TypeError: Assignment to constant variable.
+// but we can do this - 
+arr[0] = 5;
+arr[1] = 7;
+arr[2] = 2;
+
+
+// object freeze to make objects unmutable - 
+function freezeObj() {
+    "use strict";
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+
+    Object.freeze(MATH_CONSTANTS);
+
+    try {
+        MATH_CONSTANTS.PI = 99; //TypeError: Cannot assign to read only property 'PI' of object '#<Object>'
+    } catch (ex) {
+        console.log(ex);
+    }
+
+    return MATH_CONSTANTS
+}
+
+const PI = freezeObj();
+// console.log(PI)
+
+
+// Annonymous function - 
+// var magic = function () {
+//     return new Date();
+// };
+
+// arrow function - 
+// var magic = () => {
+//     return new Date();
+// };
+
+// const magic = () => new Date();
+
+// fucntion - 
+var myConcat = function(arr1, arr2) {
+    return arr1.concat(arr2);
+};
+// console.log(myConcat([1,2], [3,4,5]));
+
+// above function can be converted to arrow function
+var myConcat = (arr1, arr2) => arr1.concat(arr2);
+// console.log(myConcat([1,2], [3,4,5]));
+
+// filter and map  with arrow fucntion - 
+var array = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2]
+
+const sqaurelist = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+}
+
+const squaredIntegers = sqaurelist(array);
+// console.log(squaredIntegers)
+
+
+// rest operator to get multiple arguments
+const sumCheck = (function() {
+    return function sum(...args) {
+        return args.reduce((a,b) => a + b, 0);
+    };
+})();
+console.log(sumCheck(1,2,3,4,5));
+
+
+// spread operator - 
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"]
+let arr2;
+(function(){
+    // arr2 = arr1;
+    arr2 = [...arr1];
+    arr1[0] = 'potato';
+})();
+
+// console.log(arr2);
+
+
+// Destructuring assignment - 
+var voxel = {x: 3.6, y: 7.4, z: 6.54};
+
+// var x = voxel.x;
+// var z = voxel.y;
+// var z = voxel.z;
+
+
+// const {x: a, y: b, z: c} = voxel; // a=3.6, b = 7.4, c=6.54
+
+// destructuring to get array elements in order - 
+// const [z, x] = [1, 2, 3, 4, 5, 6];
+// console.log(z,x);
+
+const [z, x, , y] = [1, 2, 3, 4, 5, 6];
+console.log(z,x, y);
+
+// swap the values using destructuring
+let one = 8, two = 6;
+[one, two] = [two, one]
+console.log(one, two);
+
+// remove/assign first two from array using rest operator - 
+const source = [1,2,3,4,5,6,7,8,9,10];
+// const [ , , ...arr10] = source;
+const [m,n, ...arr10] = source;
+console.log(m, n, arr10); 
+
+
+
+// template literal - 
+const person = {
+    name: "Zodiac hasbrow",
+    age: 56
+};
+const greeting = `Hello, my name is ${person.name}!
+I am $[person.age] years old.`;
+
+console.log(greeting);
+
+
+// object literal - 
+// const createPerson = (name, age, gender) => {
+//     return {
+//         name : name,
+//         age: age,
+//         gender: gender
+//     };
+// };
+// console.log(createPerson("Zodiac Hasbrow", 56, "male"))
+// this could be done as 
+const createPerson = (name, age, gender) => ({ name, age, gender });
+// console.log(createPerson("Zodiac Hasbrow", 56, "male"))
+
+// functions inside object
+
+
+
+// import and export
+// import { capitalizeString } from "./string_functions.js";
+// const cap = capitalizeString("Hello from atalbajpai");
+// console.log(cap)
+
+// import everyting from file - 
+import * as capitalizeString from "./string_functions.js";
+
+
+// import a default export - 
+import subtract from "./string_functions.js";
+subtract(7, 4);
 
 
 
